@@ -24,7 +24,7 @@ RUN	apt-get install -y \
     
 
 # 3) install packages
-RUN pip install --no-cache-dir geopandas babypandas urllib 
+RUN pip install --no-cache-dir geopandas babypandas xlrd
 
 
 # 4) change back to notebook user
