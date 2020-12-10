@@ -6,7 +6,7 @@ Our finding shows that a 2,3 days lags of specimen collected date are the optima
 The data used in the study was obtained from a Massachusetts’ wastewater treatment facility with two major influent streams. The two streams are representative of ~2.25 million individuals in Middlesex, Norfolk, and Suffolk counties.
 
 ### Data Viz(time series)
-
+![alt text](figures/time_series.png)
 
 ### Responsibilities 
 
