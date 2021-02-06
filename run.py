@@ -1,6 +1,7 @@
 #!/usr/bin/env python
-from src.data.etl import fetch_and_save,transform_data
+from src.data.etl import fetch_and_save,transform_data,save_zip_file
 from src.model.model import loss_p,loss_s,loss_ps
+from src.model.ManHoleGraph import ManHoleGraph
 from src.analysis.analysis import showLoss, makePlot
 import pandas as pd
 import sys
@@ -8,15 +9,17 @@ import json
 import os
 
 def main(targets):
-
     if 'data' in targets:
         with open('config/data-params.json') as fh:
             data_cfg = json.load(fh)
 
         # make the data target
         os.mkdir("data")
-        fetch_and_save(data_cfg["links"][0],data_cfg["save_name"][0])
-        transform_data("data/covid_time_series.xls",'data/cleaned_series.csv')
+        save_zip_file(data_cfg["links"][1])
+    if 'graph' in targets: 
+        graph = ManHoleGraph()
+        graph.buildGraph()
+        graph.exportCSV()
     if 'correlations' in targets: 
         with open('config/model-params.json') as fh:
             corr_cfg = json.load(fh)
