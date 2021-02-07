@@ -1,16 +1,32 @@
+## Project MAI
 ### Project Description
-In this project, we are trying to replicate parts of the results from the paper "<em>Measurement of SARS-CoV-2 RNA in wastewater tracks community infection dynamics</em>". More specifically, we try to explore the optimal offsets(day lags vs day leads) that produce the highest correlation between number of cases detected in wastewater and number of cases reported by local officials.
-Our finding shows that a 2,3 days lags of specimen collected date are the optimal offsets. This coincides with the 0-4 days lag since 2 and 3 are within the range.
+MAI refers to Microservice-based Auto Infrastructure, a serverless architecture.
+This project aims to build a lightweight, effective, and robust system that helps with the automations of several workflows of the campus COVID detection team.
+
+### Underlying Architecture
+![alt text](mai.png)
+
+### Supported Functions
+#### AUM(auto-update microservice)
+1. Automate excel parsing => cross-reference => update the sheet 
+2. All in one script(rewrote excel parse used to parse raw cases data)
+3. One upload and a POST request
+4. Improved code quality
+for more information, go to [repository](https://github.com/CrisZong/statsTool)
+
+
+#### statsTool
+1. Prediction (autoregression model by buildings)
+2. Autocorrelations (autocorrelation by building)
+3. Stats(Cases by building sorted by number of cases)
+for more information, go to [repository](https://github.com/CrisZong/statsTool)
+
+#### Manhole Graph
+the project supports creating a graph of the manhole downstream that can be consumed by the campus notification team and running standard graph routines for paths searching or manipulations.
+
+#### Functions for graph
+To build a graph and see the resulting csv, please run `python run.py graph`
 
 ### Dataset
-The data used in the study was obtained from a Massachusetts’ wastewater treatment facility with two major influent streams. The two streams are representative of ~2.25 million individuals in Middlesex, Norfolk, and Suffolk counties.
+The data used was provided by the Knight Lab team. One data source is the daily wastewater data on the Google Spreadsheet. The other data source is the network folder which contains all the shape files about sewer and manhole connections on campus.
 
-### Data Viz(time series)
-![alt text](figures/time_series.png)
-
-### Responsibilities 
-
-Check Point 2
-* Yijian Zong integrated code from notebook and modularize them into libraries and targets
-* Nick Lin developed algorithms for loss and correlation calculations, as well as visualization
-* Richard Duong helped with the report description

@@ -20,16 +20,6 @@ def main(targets):
         graph = ManHoleGraph()
         graph.buildGraph()
         graph.exportCSV()
-    if 'correlations' in targets: 
-        with open('config/model-params.json') as fh:
-            corr_cfg = json.load(fh)
-        covid_series = pd.read_csv('data/cleaned_series.csv')
-        offsetDict = showLoss(covid_series["cases_specimen"],
-                covid_series["cases_reported"],
-                corr_cfg["correlations"][0],
-                corr_cfg["correlations"][1],
-                [loss_ps,loss_p,loss_s])
-        makePlot(offsetDict["sp"], offsetDict["p"], offsetDict["s"], "correlationsPlot.png", covid_series)
     
     if 'test' in targets: 
         with open('config/model-params.json') as fh:
